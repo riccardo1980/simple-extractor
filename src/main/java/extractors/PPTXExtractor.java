@@ -12,7 +12,7 @@ import org.apache.poi.xslf.usermodel.XSLFSlide;
 import org.apache.poi.xslf.usermodel.XSLFTextShape;
 
 /**
- * Powerpoint
+ * Powerpoint 2007 OOXML (.xlsx) extractor
  */
 public class PPTXExtractor implements Extractor {
 

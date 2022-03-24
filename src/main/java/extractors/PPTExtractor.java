@@ -12,7 +12,7 @@ import org.apache.poi.hslf.usermodel.HSLFTextParagraph;
 import org.apache.logging.log4j.LogManager;
 
 /**
- * PowerPoint 2007 OOXML (.xlsx) extractor
+ * PowerPoint 97 to 2007 (.ppt) extractor
  */
 public class PPTExtractor implements Extractor {
     

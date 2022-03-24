@@ -15,5 +15,5 @@ java -jar target/simpleExtractor-bundled-0.0.1-SNAPSHOT.jar  <input-file>
 - .pdf
 - .ppt
 - .pptx
-- .doc (coming next)
-- .docx (coming next)
+- .doc
+- .docx

@@ -6,10 +6,15 @@ import java.util.ArrayList;
 import java.lang.Exception;
 
 import org.apache.logging.log4j.Logger;
+import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.logging.log4j.LogManager;
 
+/**
+ * Microsoft Word 2007 (.docx) extractor
+ */
 public class DOCXExtractor implements Extractor {
-    
+
     private static final Logger logger = LogManager.getLogger(DOCXExtractor.class);
 
     /**
@@ -22,11 +27,21 @@ public class DOCXExtractor implements Extractor {
     public List<String> extract(InputStream stream) throws Exception
     {
         logger.info("Document open");
-        logger.warn("Not implemented yet!");
-        try
+        try (
+            XWPFDocument docx = new XWPFDocument(stream);
+            XWPFWordExtractor extr = new XWPFWordExtractor(docx);
+        )
         {
-            
             List<String> listString = new ArrayList<String>();
+
+            int pageNumber = 1;
+            logger.debug("Page: " + pageNumber + " - embedded text");
+
+            StringBuilder text = new StringBuilder();
+            text.append(extr.getText());
+            logger.info("Page: " + pageNumber + " - end extraction, text: " + text.length());
+            listString.add(text.toString());
+
             return listString;
         }
         catch (Exception e){
